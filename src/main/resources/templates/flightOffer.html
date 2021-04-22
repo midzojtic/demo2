@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--meta name="viewport" content="width=device-width, initial-scale=1.0"/-->
+</head>
+<body>
+
+<h1>Flight offer</h1>
+
+<div th:if="${ not#lists.isEmpty(flights)}">
+
+    <table>
+        <tr>
+            <th>IATA code from Airport</th>
+            <th>IATA code to Airport</th>
+            <th>Date of departure</th>
+            <th>Date of arrival</th>
+            <th>Number of stops</th>
+            <th>Number of passangers</th>
+            <th>Currency</th>
+            <th>Total price</th>
+        </tr>
+        <tr th:each="flight : ${flights}">
+            <td th:text="${flight.fromLocation}"></td>
+            <td th:text="${flight.toLocation}"></td>
+            <td th:text="${flight.departure}"></td>
+            <td th:text="${flight.arrival}"></td>
+            <td th:text="${flight.numberOfStops}"></td>
+            <td th:text="${flight.numberOfBookableSeats}"></td>
+            <td th:text="${flight.currency}"></td>
+            <td th:text="${flight.totalPrice}"></td>
+        </tr>
+    </table>
+
+</div>
+
+</table>
+
+
+</body>
+</html>

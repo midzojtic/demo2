@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css"/>
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+</head>
+<body>
+
+<h1>Hello !</h1>
+<p>Welcome to <span th:text='${appName}'>Our App</span></p>
+
+<form action="getFlightResults" method="post">
+    <div>
+        <p>Select from location</p>
+        <!--select th:field="*{flightsIn}" class="form-control" id="fromLocation" name="fromLocation">
+            <option th:each="airport: ${flightsIn}"
+                    th:value="${airport.iataCode}" th:text="${airport.airportName}+' : '+${airport.location}"></option>
+        </select-->
+        <select id="fromLocation" name="fromLocation" class="form-control">
+            <option value=""></option>
+            <option value="ZAD" name="ZAD">Zadar Airport - Zadar, Croatia</option>
+            <option value="ZAG" name="ZAG">Franjo Tudjman Airport - Zagreb, Croatia</option>
+            <option value="PAE" name="PAE">Paine Field - Everett, Washington</option>
+            <option value="SYD" name="SYD">Sydney Kingsford Smith Airport - Sydney, Australia</option>
+        </select>
+
+    </div>
+
+    <div>
+        <p>Select to location</p>
+        <!--select th:field="*{flightsOut}" class="form-control" id="toLocation" name="toLocation">
+            <option th:each="airport: ${flightsOut}"
+                    th:value="${airport.iataCode}" th:text="${airport.airportName}+' : '+${airport.location}"></option>
+        </select-->
+        <select id="toLocation" name="toLocation" class="form-control">
+            <option value=""></option>
+            <option value="MAA" name="MAA">Chennai International Airport - Chennai, Tamil Nadu, India</option>
+            <option value="AAA" name="AAA">Anaa Airport - Anaa, Tuamotus, French Polynesia</option>
+            <option value="MAE" name="MAE">Madera Municipal Airport - Madera, California, United States</option>
+            <option value="BKK" name="BKK">Suvarnabhumi Airport - Bangkok, Thailand</option>
+        </select>
+
+
+    </div>
+
+    <div>
+        <p>Number of passangers:</p> <input type="number" id="numberOfPassangers" name="numberOfPassangers">
+
+        <p>Select currency:</p>
+        <select id="currency" name="currency" class="form-control">
+            <option value=""></option>
+            <option value="EUR" name="EUR">EUR</option>
+            <option value="USD" name="USD">USD</option>
+            <option value="HRK" name="HRK">HRK</option>
+        </select>
+
+    </div>
+
+    <div style="margin-top:10px">
+        <input type="submit" value="Submit">
+    </div>
+    <p>Pick a date of flight: </p>
+    <input type="date" id="dateOfFlight" name="dateOfFlight">
+</form>
+
+
+
+</body>
+
+
+</html>
