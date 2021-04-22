@@ -20,8 +20,9 @@ public class FlightService {
 
     private static final Logger LOG = LoggerFactory.getLogger(FlightService.class);
     private final Amadeus amadeus = Amadeus.builder("DCV45ow65sJ89qwBKaSGElC7utxmPFBb", "srSOd9dF9PmwYlGG").build();
+
     @Autowired
-    private DBase dbBaze = new DBase();
+    private DBase dbBaze;
 
     /**
      * This method fetches all the data from flight records
@@ -35,7 +36,9 @@ public class FlightService {
         String key = model.getFromLocation() + model.getToLocation() + model.getDateOfFlight() + model.getCurrency() + model.getNumberOfPassangers();
         List<FlightModel> flightModelList = dbBaze.getList(key);
 
-        if (flightModelList != null && flightModelList.isEmpty()) {
+        LOG.debug("before: " + flightModelList);
+
+        if (flightModelList != null && !flightModelList.isEmpty()) {
             LOG.debug("Already has result");
             return flightModelList;
         }
